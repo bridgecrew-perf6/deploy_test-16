@@ -33,7 +33,7 @@ if section == "Story":
 
 # Objective
     st.header("Objective of this analysis")
-    st.write("In this analysis, we aim to study airplane crashes, and discover the best and worst airlines")
+    st.write("In this analysis, we aim to study airplane crashes, and discover the best and worst airlines when it comes to safety")
 
 #############################################################################################################################
 
