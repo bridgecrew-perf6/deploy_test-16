@@ -1,12 +1,25 @@
 #from matplotlib.pyplot import title
+from ast import Num
 import pandas as pd
 import numpy as np
 import plotly.express as px
 import streamlit as st
 import plotly.graph_objects as go
 
+#############################################################################################################################
+                # THE BELOW CODE IS TO HIDE THE MADE WITH STREAMLIT AND THE HAMBURGER MENU.
+#############################################################################################################################
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)
+#############################################################################################################################
 st.sidebar.image("Picture1.png", use_column_width=True)
-st.sidebar.caption("A PROJECT BY MSBA42")
+st.sidebar.caption("Powered By MSBA42")
 
 section=st.sidebar.selectbox("Go to:", ["Story", "Analysis", "Raw Data"])
 
@@ -14,6 +27,17 @@ section=st.sidebar.selectbox("Go to:", ["Story", "Analysis", "Raw Data"])
 #############################################################################################################################
 
 #############################################################################################################################
+
+# to compress the code
+# padding = 0
+# st.markdown(f""" <style>
+#     .reportview-container .main .block-container{{
+#         padding-top: {padding}rem;
+#         padding-right: {padding}rem;
+#         padding-left: {padding}rem;
+#         padding-bottom: {padding}rem;
+#     }} </style> """, unsafe_allow_html=True)
+
 
 #############################################################################################################################
 
@@ -83,6 +107,13 @@ elif section == "Analysis":
         the year 1972, the number has been decreasing despite the increase in Air Traffic.")
 
     ###################################################################################################################
+    st.markdown("<br>", unsafe_allow_html=True)
+    """
+    ---
+    """
+
+
+
     ###################################################################################################################
     st.header("Let's visualize the Fatalities per country ")
     df_by_iso= df.pivot_table(index=['iso','Country'],values=['Fatalities'], aggfunc=np.sum)
@@ -103,7 +134,10 @@ elif section == "Analysis":
         color="Black"
     ) )
     st.plotly_chart(fig_map,use_container_width=True)
-
+    st.markdown("<br>", unsafe_allow_html=True)
+    """
+    ---
+    """
 
     ###################################################################################################################
     ###################################################################################################################
@@ -130,6 +164,10 @@ elif section == "Analysis":
     st.plotly_chart(fig_summary_2,use_container_width=True)
     st.write("The pie chart above shows that when it comes to civilian airlines Aeroflot is the Worst in terms of safety\
         as it has almost 40%  of the fatalities operated by the top airliners.")
+    st.markdown("<br>", unsafe_allow_html=True)
+    """
+    ---
+    """
     #########################################################################################################################
     st.header("Let's dig deeper!")
     selected_operator=st.selectbox("Select an Operator",list_top_operators)
@@ -159,6 +197,10 @@ elif section == "Analysis":
     fig_operator.update_xaxes(title_text="Year")
     fig_operator.update_yaxes(title_text="Deaths")
     st.plotly_chart(fig_operator, use_container_width=True)
+    st.markdown("<br>", unsafe_allow_html=True)
+    """
+    ---
+    """
     #########################################################################################################################
     #########################################################################################################################
     
@@ -198,8 +240,12 @@ elif section == "Analysis":
     ) )
     fig_animated.update_xaxes(title_text="")
     st.plotly_chart(fig_animated,use_container_width=True)
-
+    st.markdown("<br>", unsafe_allow_html=True)
+    """
+    ---
+    """
 #############################################################################################################################
+
     st.header("Fatalities Per Country")
     Number_Of_Fatalities=st.slider("Minimum Number Of Fatalities",0,6485)
     filtered_df_by_iso= df_by_iso[df_by_iso['Fatalities']>Number_Of_Fatalities]
@@ -218,7 +264,10 @@ elif section == "Analysis":
         color="Black"
     ) )
     st.plotly_chart(fig_scatter_geo,use_container_width=True)
-
+    st.markdown("<br>", unsafe_allow_html=True)
+    """
+    ---
+    """
 
 
     
@@ -240,3 +289,37 @@ elif section == "Raw Data":
     data = load_data(data_path)
     st.dataframe(data)
 
+
+
+
+
+
+
+footer="""<style>
+a:link , a:visited{
+color: blue;
+background-color: transparent;
+text-decoration: underline;
+}
+
+a:hover,  a:active {
+color: red;
+background-color: transparent;
+text-decoration: underline;
+}
+
+.footer {
+position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+background-color: white;
+color: black;
+text-align: center;
+}
+</style>
+<div class="footer">
+<p>Powered by <a style='display: block; text-align: center;' href="https://www.aub.edu.lb/osb/MSBA/Pages/default.aspx"  target="_blank">MSBA42</a></p>
+</div>
+"""
+st.markdown(footer,unsafe_allow_html=True)
