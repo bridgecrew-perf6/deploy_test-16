@@ -281,6 +281,7 @@ elif section == "Analysis":
 
 elif section == "Raw Data":
     st.title("Airplane Crashes Dataset")
+    st.write("Airplane Crashes and Fatalities Since 1908 (Full history of airplane crashes throughout the world, from 1908-present)")
     data_path = "cleaned_airplane_crashes_with_countries.csv"
     @st.cache
     def load_data(path):
