@@ -6,6 +6,9 @@ import plotly.express as px
 import streamlit as st
 import plotly.graph_objects as go
 
+
+st.set_page_config(page_title= "Airplane Crashes Data Visualization")
+
 #############################################################################################################################
                 # THE BELOW CODE IS TO HIDE THE MADE WITH STREAMLIT AND THE HAMBURGER MENU.
 #############################################################################################################################
