@@ -19,7 +19,7 @@ hide_st_style = """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 #############################################################################################################################
 st.sidebar.image("Picture1.png", use_column_width=True)
-st.sidebar.caption("Powered By MSBA42")
+st.sidebar.caption("Powered by MSBA42")
 
 section=st.sidebar.selectbox("Go to:", ["Story", "Analysis", "Raw Data"])
 
