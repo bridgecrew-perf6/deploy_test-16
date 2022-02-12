@@ -91,6 +91,17 @@ elif section == "Analysis":
                     color="Fatalities", # lifeExp is a column of gapminder
                     hover_name="Country", # column to add to hover information
                     color_continuous_scale=px.colors.sequential.Plasma)
+    fig_map.update_layout(title={
+        'text': "A choropleth map the difference in Fatalities from a Country to another",
+        'y':0.95,
+        'x':0.5,
+        'xanchor': 'center',
+        'yanchor': 'top'},
+        font=dict(
+        family="Arial",
+        size=13,
+        color="Black"
+    ) )
     st.plotly_chart(fig_map,use_container_width=True)
 
 
@@ -188,6 +199,25 @@ elif section == "Analysis":
     fig_animated.update_xaxes(title_text="")
     st.plotly_chart(fig_animated,use_container_width=True)
 
+#############################################################################################################################
+    st.header("Fatalities Per Country")
+    Number_Of_Fatalities=st.slider("Minimum Number Of Fatalities",0,6485)
+    filtered_df_by_iso= df_by_iso[df_by_iso['Fatalities']>Number_Of_Fatalities]
+    fig_scatter_geo = px.scatter_geo(filtered_df_by_iso, locations="iso",
+                     size="Fatalities", # size of markers, "pop" is one of the columns of gapminder
+                     )
+    fig_scatter_geo.update_layout(title={
+        'text': "A map showing the Fatalities within the Countries",
+        'y':0.95,
+        'x':0.5,
+        'xanchor': 'center',
+        'yanchor': 'top'},
+        font=dict(
+        family="Arial",
+        size=13,
+        color="Black"
+    ) )
+    st.plotly_chart(fig_scatter_geo,use_container_width=True)
 
 
 
