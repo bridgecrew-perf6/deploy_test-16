@@ -126,7 +126,7 @@ elif section == "Analysis":
                     hover_name="Country", # column to add to hover information
                     color_continuous_scale=px.colors.sequential.Plasma)
     fig_map.update_layout(title={
-        'text': "A choropleth map the difference in Fatalities from a Country to another",
+        'text': "A choropleth map showing the difference in Fatalities between countries",
         'y':0.95,
         'x':0.5,
         'xanchor': 'center',
