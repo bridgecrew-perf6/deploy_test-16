@@ -7,7 +7,17 @@ import plotly.graph_objects as go
 
 
 st.set_page_config(page_title= "Airplane Crashes Data Visualization")
-
+st.markdown(
+        """
+    <style>
+    .e16nr0p30>h1 {
+        text-align:center;
+        border-bottom: 4px solid #CE2611;
+    }
+    </style>
+    """,
+        unsafe_allow_html=True,
+    )
 #############################################################################################################################
                 # THE BELOW CODE IS TO HIDE THE MADE WITH STREAMLIT AND THE HAMBURGER MENU.
 #############################################################################################################################
