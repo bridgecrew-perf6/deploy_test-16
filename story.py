@@ -259,7 +259,7 @@ elif section == "Analysis":
 #############################################################################################################################
 
     st.header("Fatalities Per Country")
-    Number_Of_Fatalities=st.slider("Minimum Number Of Fatalities",0,6485)
+    Number_Of_Fatalities=st.slider("Minimum Number Of Fatalities",0,6485,step=1000)
     filtered_df_by_iso= df_by_iso[df_by_iso['Fatalities']>Number_Of_Fatalities]
     fig_scatter_geo = px.scatter_geo(filtered_df_by_iso, locations="iso",
                      size="Fatalities", # size of markers, "pop" is one of the columns of gapminder
